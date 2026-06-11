@@ -1,111 +1,107 @@
-import Link from "next/link";
+"use client";
 
+import Link from "next/link";
 import {
-LayoutDashboard,
-BarChart3,
-User,
-Settings,
-Shield,
-LogIn,
+  LayoutDashboard,
+  BarChart3,
+  User,
+  Settings,
+  Shield,
+  LogIn,
 } from "lucide-react";
 
 export default function Sidebar() {
-return ( <aside
-   className="
-   fixed
-   left-0
-   top-0
-   h-screen
-   w-64
-   bg-slate-900
-   text-white
-   shadow-2xl
-   "
- > <div className="p-6 border-b border-slate-700">
+  return (
+    <aside className="
+  h-screen
+  bg-slate-900
+  text-white
+  shadow-2xl
+  overflow-hidden
 
-    <h1 className="text-3xl font-bold">
-      LearnTrack
-    </h1>
+  w-64
+  md:w-20
+  lg:w-64
+">
+      {/* Header */}
+      <div className="p-6 border-b border-slate-700">
+        <h1 className="text-2xl lg:text-3xl font-bold">
+          LearnTrack
+        </h1>
 
-    <p className="text-slate-400 mt-2">
-      Learning Dashboard
-    </p>
+        <p className="text-slate-400 mt-2 hidden lg:block">
+          Learning Dashboard
+        </p>
+      </div>
 
-  </div>
+      {/* Navigation */}
+      <nav className="flex flex-col gap-2 p-4">
 
-  <nav className="flex flex-col gap-2 p-4">
+        {/* Dashboard */}
+        <Link
+          href="/"
+          className="flex items-center md:justify-center lg:justify-start gap-3 p-3 rounded-xl hover:bg-slate-800 transition"
+        >
+          <LayoutDashboard size={20} />
+          <span className="hidden lg:block">Dashboard</span>
+        </Link>
 
-    <Link
-      href="/"
-      className="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-800 transition"
-    >
-      <LayoutDashboard size={20} />
-      Dashboard
-    </Link>
+        {/* Analytics */}
+        <Link
+          href="/analytics"
+          className="flex items-center md:justify-center lg:justify-start gap-3 p-3 rounded-xl hover:bg-slate-800 transition"
+        >
+          <BarChart3 size={20} />
+          <span className="hidden lg:block">Analytics</span>
+        </Link>
 
-    <Link
-      href="/analytics"
-      className="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-800 transition"
-    >
-      <BarChart3 size={20} />
-      Analytics
-    </Link>
+        {/* Profile */}
+        <Link
+          href="/profile"
+          className="flex items-center md:justify-center lg:justify-start gap-3 p-3 rounded-xl hover:bg-slate-800 transition"
+        >
+          <User size={20} />
+          <span className="hidden lg:block">Profile</span>
+        </Link>
 
-    <Link
-      href="/profile"
-      className="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-800 transition"
-    >
-      <User size={20} />
-      Profile
-    </Link>
+        {/* Settings */}
+        <Link
+          href="/settings"
+          className="flex items-center md:justify-center lg:justify-start gap-3 p-3 rounded-xl hover:bg-slate-800 transition"
+        >
+          <Settings size={20} />
+          <span className="hidden lg:block">Settings</span>
+        </Link>
 
-    <Link
-      href="/settings"
-      className="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-800 transition"
-    >
-      <Settings size={20} />
-      Settings
-    </Link>
+        {/* Admin */}
+        <Link
+          href="/admin"
+          className="flex items-center md:justify-center lg:justify-start gap-3 p-3 rounded-xl hover:bg-slate-800 transition"
+        >
+          <Shield size={20} />
+          <span className="hidden lg:block">Admin</span>
+        </Link>
 
-    <Link
-      href="/admin"
-      className="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-800 transition"
-    >
-      <Shield size={20} />
-      Admin
-    </Link>
+        {/* Login */}
+        <Link
+          href="/login"
+          className="flex items-center md:justify-center lg:justify-start gap-3 p-3 rounded-xl hover:bg-slate-800 transition"
+        >
+          <LogIn size={20} />
+          <span className="hidden lg:block">Login</span>
+        </Link>
 
-    <Link
-      href="/login"
-      className="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-800 transition"
-    >
-      <LogIn size={20} />
-      Login
-    </Link>
+      </nav>
 
-  </nav>
-
-  <div
-    className="
-    absolute
-    bottom-0
-    w-full
-    p-5
-    border-t
-    border-slate-700
-    "
-  >
-    <p className="text-slate-400 text-sm">
-      Logged In As
-    </p>
-
-    <p className="font-semibold mt-1">
-      Tavishi
-    </p>
-  </div>
-
-</aside>
-
-
-);
+      {/* Footer */}
+      <div className="absolute bottom-0 w-full p-5 border-t border-slate-700">
+        <p className="text-slate-400 text-sm hidden lg:block">
+          Logged In As
+        </p>
+        <p className="font-semibold mt-1 text-center lg:text-left">
+          Tavishi
+        </p>
+      </div>
+    </aside>
+  );
 }
