@@ -10,22 +10,25 @@ export default function SidebarWrapper() {
   return (
     <>
       {/* Mobile Top Bar */}
-      <div className="md:hidden flex items-center justify-between p-4 bg-slate-900 text-white">
+      <div className="md:hidden flex items-center p-4 bg-slate-900 text-white">
         <h1 className="font-bold">LearnTrack</h1>
 
-        <button onClick={() => setOpen(!open)}>
-          <Menu />
-        </button>
+        {/* hamburger RIGHT SIDE */}
+        <div className="ml-auto">
+          <button onClick={() => setOpen(!open)}>
+            <Menu />
+          </button>
+        </div>
       </div>
 
-      {/* Mobile Sidebar (Drawer) */}
+      {/* Mobile Sidebar Drawer */}
       {open && (
         <div className="md:hidden fixed top-0 left-0 w-64 h-full z-50">
           <Sidebar />
         </div>
       )}
 
-      {/* Desktop + Tablet Sidebar */}
+      {/* Desktop Sidebar */}
       <div className="hidden md:block fixed top-0 left-0 h-screen z-40">
         <Sidebar />
       </div>
